@@ -1,25 +1,20 @@
 class Anagram
-  def anagram_finder(word_array)
-    if word_array.class != Array
-      word_array = word_array.split(" ").sort
-    end
-    result_array = []
-    vowels = {a, e, i, o, u,}
-    word_array.each do |word|
-      x = 0
-      while(x < (word.length / 2).floor)
-        if (!(word[x] == word[(word.length - 1 - x)]))
-          result = false
-          break
-        else
-          result = true
+  def anagram_finder(words)
+    result_array = Array.new(0)
+    words.each do |word1|
+      new_array = []
+      words.each do |word2|
+        if (word1.scan(/[aeiou]/i) !== new_array) && (word2.scan(/[aeiou]/i) !== new_array)
+          return
+          "Please input a real word, it must contain a vowel"
         end
-        x = x + 1
+      elsif (word2.downcase.split(//).sort == word1.downcase.split(//).sort)
+          new_array.push(w2)
+        end
+      elsif (word2.downcase.split(//).sort !== word1.downcase.split(//).sort)
+        return ("error, this is an Antigram")
       end
-      if result == true
-        result_array.push(word)
-      end
+      result_array.push(new_array)
     end
-    return result_array.join(" is an anagram of ")
+    return result_array.uniq
   end
-end
