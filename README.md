@@ -27,7 +27,7 @@
 
 
 
-_This project uses the lates versions of Ruby and the Gems included in the project.
+_This project uses the lates versions of Ruby and the Gems included in the project._
 
 ## No known Bugs at this point.
 
