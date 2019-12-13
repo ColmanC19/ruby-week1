@@ -8,12 +8,12 @@ class Anagram
           return ("Please input a real word, it must contain a vowel")
         end
       elsif (word2.downcase.split(//).sort == word1.downcase.split(//).sort)
-          new_array.push(w2)
-        end
-      elsif (word2.downcase.split(//).sort !== word1.downcase.split(//).sort)
-        return ("error, this is an Antigram")
+        new_array.push(w2)
       end
-      result_array.push(new_array)
+    elsif (word2.downcase.split(//).sort !== word1.downcase.split(//).sort)
+      return ("error, this is an Antigram")
     end
-    return result_array.uniq
+    result_array.push(new_array)
   end
+  return result_array.uniq
+end
