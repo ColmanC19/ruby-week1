@@ -25,3 +25,9 @@ describe('#ruby-week1') do
     expect(new_anagram.anagram_finder("hi")).to(eq("bye"))
   end
 end
+describe('#ruby-week1') do
+  it('will check if a real word containing at least one vowel has been entered') do
+    new_anagram = Anagram.new()
+    expect(new_anagram.anagram_finder("qwy")).to(eq("Please input a real word, it must contain a vowel"))
+  end
+end
