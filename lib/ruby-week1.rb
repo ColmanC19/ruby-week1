@@ -1,9 +1,10 @@
 class Anagram
-  def annagram_finder(word_array)
+  def anagram_finder(word_array)
     if word_array.class != Array
-      word_array = word_array.split(" ")
+      word_array = word_array.split(" ").sort
     end
     result_array = []
+    vowels = {a, e, i, o, u,}
     word_array.each do |word|
       x = 0
       while(x < (word.length / 2).floor)
