@@ -2,6 +2,12 @@ require ('rspec')
 require ('ruby-week1')
 
 describe('#ruby-week1') do
+  it('will check that one letter is NOT equal another') do
+    new_annagram = Annagram.new()
+    expect(new_annagram.annagram_finder("a")).to(eq("b"))
+  end
+end
+describe('#ruby-week1') do
   it('will check that one letter is equal another') do
     new_annagram = Annagram.new()
     expect(new_annagram.annagram_finder("a")).to(eq("a"))
