@@ -19,3 +19,9 @@ describe('#ruby-week1') do
     expect(new_anagram.anagram_finder("care")).to(eq("race"))
   end
 end
+describe('#ruby-week1') do
+  it('will check if no letters match between the two words, resulting in an Antigram') do
+    new_anagram = Anagram.new()
+    expect(new_anagram.anagram_finder("hi")).to(eq("bye"))
+  end
+end
