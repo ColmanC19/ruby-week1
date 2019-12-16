@@ -1,33 +1,65 @@
 require ('rspec')
 require ('ruby-week1')
 
-describe('#ruby-week1') do
-  it('will check that one letter is NOT equal another') do
-    new_anagram = Anagram.new()
-    expect(new_annagram.anagram_finder("a")).to(eq("b"))
-  end
-end
-describe('#ruby-week1') do
+describe('#anagram_finder') do
   it('will check that one letter is equal another') do
-    new_anagram = Anagram.new()
-    expect(new_anagram.anagram_finder("a")).to(eq("a"))
+    word = Word.new()
+    word1 = "A"
+    word2= "A"
+    expect(word.anagram_finder(word1, word2)).to(eq(true))
   end
 end
-describe('#ruby-week1') do
-  it('will check that the letters of one word are equal another') do
-    new_anagram = Anagram.new()
-    expect(new_anagram.anagram_finder("care")).to(eq("race"))
+describe('#anagram_finder') do
+  it('will check that one word is equal another') do
+    word = Word.new()
+    word1 = "bye"
+    word2= "Bye"
+    expect(word.anagram_finder(word1, word2)).to(eq(true))
   end
 end
-describe('#ruby-week1') do
-  it('will check if no letters match between the two words, resulting in an Antigram') do
-    new_anagram = Anagram.new()
-    expect(new_anagram.anagram_finder("hi")).to(eq("bye"))
+describe('#anagram_finder') do
+  it('will check that one word is equal another') do
+    word = Word.new()
+    word1 = "bye"
+    word2= "bey"
+    expect(word.anagram_finder(word1, word2)).to(eq(true))
   end
 end
-describe('#ruby-week1') do
-  it('will check if a real word containing at least one vowel has been entered') do
-    new_anagram = Anagram.new()
-    expect(new_anagram.anagram_finder("qwy")).to(eq("Please input a real word, it must contain a vowel"))
+describe('#anagram_finder') do
+  it('will check that one word is not equal to a partial match of another word') do
+    word = Word.new()
+    word1 = "bye"
+    word2= "beye"
+    expect(word.anagram_finder(word1, word2)).not_to(eq(true))
   end
 end
+describe('#anagram_finder') do
+  it('will check that a word contains a vowel') do
+    word = Word.new()
+    word1 = "ruby"
+    word2= "bbbb"
+    # expect(word.anagram_finder(word1, word2)).to(eq("This is not a real word, please use a word containing a vowel"))
+  end
+end
+describe('#vowel_finder') do
+  it('will check that a word contains a vowel') do
+    word = Word.new()
+    word1 = "rubye"
+    expect(word.vowel_finder(word1)).to(eq(true))
+  end
+end
+describe('#vowel_finder') do
+  it('will check that a word does NOT contain a vowel') do
+    word = Word.new()
+    word1 = "rby"
+    expect(word.vowel_finder(word1)).to(eq(false))
+  end
+end
+# describe('#anagram_finder') do
+#   it('will check that a word is an antigram') do
+#     word = Word.new()
+#     word1 = "ruby"
+#     word2= "qwed"
+#     expect(word.anagram_finder(word1, word2)).to(eq("This is an antigram"))
+#   end
+# end
