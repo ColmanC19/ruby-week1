@@ -1,19 +1,29 @@
-class Anagram
-  def anagram_finder(words)
-    result_array = Array.new(0)
-    words.each do |word1|
-      new_array = []
-      words.each do |word2|
-        if (word1.scan(/[aeiou]/i) != new_array) && (word2.scan(/[aeiou]/i) != new_array)
-          return ("Please input a real word, it must contain a vowel")
-        elsif (word2.downcase.split(//).sort == word1.downcase.split(//).sort)
-        new_array.push(w2)
-        elsif (word2.downcase.split(//).sort != word1.downcase.split(//).sort)
-      return ("error, this is an Antigram")
+class Word
+  def vowel_finder(word)
+    vowels = word.scan(/[aeiou]/)
+    puts vowels
+    if vowels.count() >= 1
+      return true
+    else
+      return false
+
     end
-    result_array.push(new_array)
+
   end
-  return result_array.uniq
-end
-end
+
+	def anagram_finder(word1, word2)
+		word_one = word1.downcase
+		word_two = word2.downcase
+    puts !(word_one.include?(/[aeiou]/))
+		if (word_one.length != word_two.length)
+			return false
+		elsif (!(word_one.scan(/[aeiou]/)) || !(word_two.scan(/[aeiou]/)))
+			return "This is not a real word, please use a word containing a vowel"
+		elsif (word_one.chars.sort.join == (word_two.chars.sort.join))
+			return true
+		else
+			return "This is an antigram"
+		end
+
+	end
 end
