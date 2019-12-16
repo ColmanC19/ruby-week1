@@ -6,7 +6,7 @@ describe('#anagram_finder') do
     word = Word.new()
     word1 = "A"
     word2= "A"
-    expect(word.anagram_finder(word1, word2)).to(eq(true))
+    expect(word.anagram_finder(word1, word2)).to(eq("This is an anagram"))
   end
 end
 
@@ -15,7 +15,7 @@ describe('#anagram_finder') do
     word = Word.new()
     word1 = "bye"
     word2= "Bye"
-    expect(word.anagram_finder(word1, word2)).to(eq(true))
+    expect(word.anagram_finder(word1, word2)).to(eq("This is an anagram"))
   end
 end
 
@@ -24,7 +24,7 @@ describe('#anagram_finder') do
     word = Word.new()
     word1 = "bye"
     word2= "bey"
-    expect(word.anagram_finder(word1, word2)).to(eq(true))
+    expect(word.anagram_finder(word1, word2)).to(eq("This is an anagram"))
   end
 end
 
@@ -33,7 +33,7 @@ describe('#anagram_finder') do
     word = Word.new()
     word1 = "bye"
     word2= "beye"
-    expect(word.anagram_finder(word1, word2)).not_to(eq(true))
+    expect(word.anagram_finder(word1, word2)).to(eq("These cannot be an anagram as their lengths do not match"))
   end
 end
 
@@ -59,5 +59,32 @@ describe('#anagram_finder') do
     word1 = "ruby"
     word2= "qwed"
     expect(word.anagram_finder(word1, word2)).to(eq("This is an antigram"))
+  end
+end
+
+describe('#anagram_finder') do
+  it('will check that a phrase, or multiple words are an anagram') do
+    word = Word.new()
+    word1 = "ruoby as"
+    word2= "ruby osa"
+    expect(word.anagram_finder(word1, word2)).to(eq("This is an anagram"))
+  end
+end
+
+describe('#anagram_finder') do
+  it('will check that a phrase, or multiple words are an antigram') do
+    word = Word.new()
+    word1 = "dog ad"
+    word2= "dag os"
+    expect(word.anagram_finder(word1, word2)).to(eq("This is an antigram"))
+  end
+end
+
+describe('#anagram_finder') do
+  it('will check that a word, multiple words or phrase do NOT factor in punctuation') do
+    word = Word.new()
+    word1 = "dog as"
+    word2= "dog. as"
+    expect(word.anagram_finder(word1, word2)).to(eq("This is an anagram"))
   end
 end

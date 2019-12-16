@@ -9,14 +9,14 @@ class Word
   end
 
 	def anagram_finder(word1, word2)
-		word_one = word1.downcase
-		word_two = word2.downcase
-		if (word_one.length != word_two.length)
-			return false
-		elsif ((!contains_vowels(word_one)) || (!contains_vowels(word_two)))
+		word_one = word1.downcase.gsub(/[^a-z0-9]/i, '')
+		word_two = word2.downcase.gsub(/[^a-z0-9]/i, '')
+		if ((word_one.length) != (word_two.length))
+			return "These cannot be an anagram as their lengths do not match"
+		elsif (!contains_vowels(word_one) || !contains_vowels(word_two))
 			return "This is not a real word, please use a word containing a vowel"
 		elsif (word_one.chars.sort.join == (word_two.chars.sort.join))
-			return true
+			return "This is an anagram"
 		else
 			return "This is an antigram"
 		end
