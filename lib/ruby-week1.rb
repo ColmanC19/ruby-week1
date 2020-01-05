@@ -1,4 +1,9 @@
 class Word
+  def initialize(word1, word2)
+    @word1 = word1
+    @word2 = word2
+  end
+  
   def contains_vowels(word)
     vowels = word.scan(/[aeiou]/)
     if vowels.count() >= 1
@@ -7,6 +12,7 @@ class Word
       return false
     end
   end
+
 
 	def anagram_finder(word1, word2)
 		word_one = word1.downcase.gsub(/[^a-z0-9]/i, '')
@@ -17,7 +23,7 @@ class Word
 			return "This is not a real word, please use a word containing a vowel"
 		elsif (word_one.chars.sort.join == (word_two.chars.sort.join))
 			return "This is an anagram"
-		else
+		else (word_one.chars.sort.join != (word_two.chars.sort.join))
 			return "This is an antigram"
 		end
 	end
