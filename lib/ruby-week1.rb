@@ -3,7 +3,7 @@ class Word
     @word1 = word1
     @word2 = word2
   end
-  
+
   def contains_vowels(word)
     vowels = word.scan(/[aeiou]/)
     if vowels.count() >= 1
@@ -14,9 +14,9 @@ class Word
   end
 
 
-	def anagram_finder(word1, word2)
-		word_one = word1.downcase.gsub(/[^a-z0-9]/i, '')
-		word_two = word2.downcase.gsub(/[^a-z0-9]/i, '')
+	def anagram_finder
+		word_one = @word1.downcase.gsub(/[^a-z0-9]/i, '')
+		word_two = @word2.downcase.gsub(/[^a-z0-9]/i, '')
 		if ((word_one.length) != (word_two.length))
 			return "These cannot be an anagram as their lengths do not match"
 		elsif (!contains_vowels(word_one) || !contains_vowels(word_two))
