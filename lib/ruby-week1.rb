@@ -1,18 +1,9 @@
 class Word
+  attr_accessor :word1, :word2
   def initialize(word1, word2)
     @word1 = word1
     @word2 = word2
   end
-
-  def contains_vowels(word)
-    vowels = word.scan(/[aeiou]/)
-    if vowels.count() >= 1
-      return true
-    else
-      return false
-    end
-  end
-
 
 	def anagram_finder
 		word_one = @word1.downcase.gsub(/[^a-z0-9]/i, '')
@@ -27,4 +18,13 @@ class Word
 			return "This is an antigram"
 		end
 	end
+  
+  def contains_vowels(word)
+    vowels = word.scan(/[aeiou]/)
+    if vowels.count() >= 1
+      return true
+    else
+      return false
+    end
+  end
 end
