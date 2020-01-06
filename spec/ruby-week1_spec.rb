@@ -45,7 +45,7 @@ end
 
 describe('#anagram_finder') do
   it('will check that a word is an antigram') do
-    word = Word.new("ruby", "qwed")
+    word = Word.new("hit", "bye")
     expect(word.anagram_finder()).to(eq("This is an antigram"))
   end
 end
@@ -68,5 +68,12 @@ describe('#anagram_finder') do
   it('will check that a word, multiple words or phrase do NOT factor in punctuation') do
     word = Word.new("dog as", "dog. as")
     expect(word.anagram_finder()).to(eq("This is an anagram"))
+  end
+end
+
+describe('#anagram_finder') do
+  it('will check that two words are neither an anagram nor antigram') do
+    word = Word.new("hike", "bell")
+    expect(word.anagram_finder()).to(eq("These are neither an anagram nor an antigram, just two words with the same amount of letters in them."))
   end
 end
