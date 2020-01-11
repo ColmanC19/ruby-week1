@@ -11,25 +11,21 @@ class Word
     new_word_one = word_one.chars.sort
     new_word_two = word_two.chars.sort
     new_check = new_word_one & new_word_two
-    if ((word_one.length) != (word_two.length))
-      return "These cannot be an anagram as their lengths do not match"
+    if new_check.length == 0
+     "This is an antigram"
+    elsif ((word_one.length) != (word_two.length))
+       "These cannot be an anagram as their lengths do not match"
     elsif (!contains_vowels(word_one) || !contains_vowels(word_two))
-      return "This is not a real word, please use a word containing a vowel"
+       "This is not a real word, please use a word containing a vowel"
     elsif new_word_one.eql?(new_word_two)
-      return "This is an anagram"
-    elsif new_check.length == 0
-      return "This is an antigram"
+       "This is an anagram"
     else
-      return "These are neither an anagram nor an antigram, just two words with the same amount of letters in them."
+       "These are neither an anagram nor an antigram, just two words with the same amount of letters in them."
     end
   end
 
   def contains_vowels(word)
     vowels = word.scan(/[aeiou]/)
-    if vowels.count() >= 1
-      return true
-    else
-      return false
-    end
+    vowels.count() >= 1
   end
 end
